@@ -5,6 +5,9 @@ import { Link } from "react-router-dom"
 
 const Header = () => {
   const [navList, setNavList] = useState(false)
+  const handleClick = () => {
+    window.location.href = 'http://localhost:3000/gemini-bot-react/';
+  };
 
   return (
     <>
@@ -26,9 +29,7 @@ const Header = () => {
             <h4>
               <span>2</span> My List
             </h4>
-            <Link to="/gemini-bot-react/" className="btn1">
-  <i className="fa fa-sign-out"></i> Chat
-</Link>
+            <button onClick={handleClick}>Chat</button>
 
           </div>
 
