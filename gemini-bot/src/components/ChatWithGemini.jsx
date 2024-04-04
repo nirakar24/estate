@@ -34,7 +34,7 @@ const ChatWithGemini = () => {
 
     return (
         <>
-            <Box className="w-[100%] self-center max-w-[1400px] m-4 overflow-auto rounded-md h-[80%] items-center">
+            <Box className="w-[100%] self-center max-w-[100%] m-4 overflow-auto rounded-md h-[80%] items-center bg-lime-100">
                 <Box className="overflow-auto px-10 py-4 flex flex-col">
                     {messages.length > 0 ? messages.map((message, index) => <RenderMessage loading={loading} key={index + message.role} messageLength={messages.length} message={message} msgIndex={index} />) :
                         <Introduction />
@@ -42,8 +42,8 @@ const ChatWithGemini = () => {
                     <AlwaysScrollToBottom />
                 </Box>
             </Box>
-            <Box className="flex max-w-[1400px] px-10 pt-2 w-[100%] self-center">
-                <Box className="flex w-[100%] gap-2 justify-between items-center">
+            <Box className="flex max-w-[100%] p-10 w-[100%] self-center bg-lime-100  rounded-md">
+                <Box className="flex w-[100%] gap-2 justify-between items-center rounded bg-lime-400 p-3">
                     <Textarea
                         placeholder="Type a message"
                         value={input || ""}
@@ -85,18 +85,18 @@ const Introduction = () => {
         const { value = '', direction = 'r', size = 'large' } = props
         return <Text
             fontSize={size}
-            bgGradient={`linear(to-${direction}, blue.100, cyan.700)`}
+            bgColor={'#98eb34'}
             bgClip={'text'}
-            fontWeight={'bold'}
+            fontWeight={'700'}
         >
             {value}
         </Text>
     }
 
 
-    return <Box className="flex flex-col items-center justify-center">
-        <Box className="flex flex-col items-center justify-center">
-            <TextRenderer value="AI Assistant" size="xxx-large" />
+    return <Box className="flex flex-col items-center justify-center "  color="green.500">
+        <Box className="flex flex-col items-center justify-center text-lime-500">
+            <TextRenderer value="RentHome AI" size="xxx-large" color="green.500"/>
             <TextRenderer value=" I'm here to provide you with unparalleled support and insights throughout your real estate journey.
 
 With my comprehensive knowledge of the market, neighborhood trends, and property details, How can I assist you?:" direction={'l'} />
@@ -112,9 +112,9 @@ const RenderMessage = ({ message, msgIndex, loading, messageLength }) => {
     const { parts, role } = message
 
     const Loader = () => msgIndex === messageLength - 1 && loading && <Box className="flex self-start pt-2 ">
-        <Box bgColor={'blue.500'} className="dot" />
-        <Box bgColor={'blue.500'} className="dot" />
-        <Box bgColor={'blue.500'} className="dot" />
+        <Box bgColor={'lime.500'} className="dot" />
+        <Box bgColor={'lime.500'} className="dot" />
+        <Box bgColor={'lime.500'} className="dot" />
     </Box>
 
     return (
